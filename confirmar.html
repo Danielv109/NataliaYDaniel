@@ -1063,11 +1063,12 @@
         { nombre: "Paula Núñez" },
         { nombre: "Alejandra Canales" },
         { nombre: "María Ernestina Arroyo Breceda" },
+        { nombre: "Esteban Castañeda" },
       ];
 
       // ═══════════════════════════════════════════════════════
       // LÓGICA DEL FORMULARIO
-      // ═══════════════════════════════════════════════════════
+      // ══════════════════════════════════════════════════════
 
       const searchInput = document.getElementById("guestSearch");
       const acList = document.getElementById("acList");
@@ -1154,8 +1155,8 @@
           const div = document.createElement("div");
           div.className = "ac-item";
           div.innerHTML = `
-      <div class="ac-name">${highlightMatch(inv.nombre, query)}${confirmed ? ' <span style="font-size:10px;color:#9e8241;letter-spacing:1px;font-family:Jost,sans-serif;font-weight:300">· CONFIRMADO</span>' : ""}</div>
-    `;
+        <div class="ac-name">${highlightMatch(inv.nombre, query)}${confirmed ? ' <span style="font-size:10px;color:#9e8241;letter-spacing:1px;font-family:Jost,sans-serif;font-weight:300">· CONFIRMADO</span>' : ""}</div>
+      `;
           div.addEventListener("click", () => selectGuest(inv));
           acList.appendChild(div);
         });
@@ -1246,12 +1247,12 @@
             const row = document.createElement("div");
             row.className = "member-row";
             row.innerHTML = `
-            <span class="member-name">${m.nombre}</span>
-            <div class="member-toggle">
-              <button type="button" data-name="${m.nombre}" data-val="si">Sí</button>
-              <button type="button" data-name="${m.nombre}" data-val="no">No</button>
-            </div>
-          `;
+              <span class="member-name">${m.nombre}</span>
+              <div class="member-toggle">
+                <button type="button" data-name="${m.nombre}" data-val="si">Sí</button>
+                <button type="button" data-name="${m.nombre}" data-val="no">No</button>
+              </div>
+            `;
             row.querySelectorAll("button").forEach((btn) => {
               btn.addEventListener("click", () => {
                 const name = btn.dataset.name;
@@ -1338,8 +1339,8 @@
               ? "Tu asistencia ya fue confirmada. ¡Te esperamos con mucho cariño!"
               : "Registramos que no podrás asistir. ¡Te extrañaremos!";
           detailHTML = `
-        <div class="sd-row"><span class="sd-label">Invitado</span><span class="sd-value">${inv.nombre}</span></div>
-        <div class="sd-row"><span class="sd-label">Asistencia</span><span class="sd-value">${data.attendance === "si" ? "✓ Confirmado" : "✗ No asistirá"}</span></div>`;
+          <div class="sd-row"><span class="sd-label">Invitado</span><span class="sd-value">${inv.nombre}</span></div>
+          <div class="sd-row"><span class="sd-label">Asistencia</span><span class="sd-value">${data.attendance === "si" ? "✓ Confirmado" : "✗ No asistirá"}</span></div>`;
         }
         detailHTML += `<div class="sd-row"><span class="sd-label">Pases</span><span class="sd-value">${members.length}</span></div>`;
         if (data.comment)
@@ -1525,7 +1526,7 @@
               ? `¡Qué alegría que nos acompañes! Te esperamos con los brazos abiertos.`
               : `Lamentamos que no puedas asistir. ¡Te tendremos presente en nuestro corazón!`;
           detailHTML = `<div class="sd-row"><span class="sd-label">Invitado</span><span class="sd-value">${data.nombre}</span></div>
-        <div class="sd-row"><span class="sd-label">Asistencia</span><span class="sd-value">${attendanceDetail}</span></div>`;
+          <div class="sd-row"><span class="sd-label">Asistencia</span><span class="sd-value">${attendanceDetail}</span></div>`;
         }
         detailHTML += `<div class="sd-row"><span class="sd-label">Pases</span><span class="sd-value">${data.pases}</span></div>`;
         if (comment)
